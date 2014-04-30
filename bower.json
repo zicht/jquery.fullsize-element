@@ -1,0 +1,17 @@
+{
+    "name": "zicht-full-size-element-js",
+    "version": "0.0.1",
+    "main": "src/jquery.full-size-element.js",
+    "authors": [
+        "Joppe Aarts <joppe@zicht.nl>"
+    ],
+    "description": "jQuery plugin for creating full size elements",
+    "devDependencies": {
+        "jasmine-jquery": "1.5.2",
+        "bootstrap-css": "~3.0.0"
+    },
+    "dependencies": {
+        "jquery": "1.10.2",
+        "zicht-image-loader-js": "http://bower.dev3.zicht.intern/ZichtImagePreloader.js.tar.gz"
+    }
+}

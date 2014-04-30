@@ -1,0 +1,15 @@
+.svn/
+.idea/
+.settings/
+.buildpath
+.project
+.DS_Store
+rsync.exclude
+Makefile
+.sass-cache
+bower_components
+build
+cache/
+logs/
+.git/
+config/phantomjs

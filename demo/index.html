@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+
+    <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap-css/css/bootstrap.min.css">
+    <style type="text/css">
+        .img-container {
+            position: relative;
+            margin: 50px;
+            width: 50%;
+            height: 300px;
+            overflow: hidden;
+            border: 1px solid #000000;
+        }
+        img {
+            position: absolute;
+            display: block;
+        }
+    </style>
+    <script type="text/javascript" src="../bower_components/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../bower_components/zicht-image-loader-js/dist/jquery.image-loader.min.js"></script>
+    <script type="text/javascript" src="../src/jquery.full-size-element.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Demo</h1>
+        <h2>1. Default, full size and centered on both axes</h2>
+        <pre>
+            {
+                fullWidth: true,
+                fullHeight: true,
+                valign: 'center',
+                halign: 'center'
+            }
+        </pre>
+        <script type="text/javascript">
+            'use strict';
+
+            jQuery(function ($) {
+                $('#img-1').fullSizeElement();
+            });
+        </script>
+        <div class="img-container">
+            <img src="http://lorempixel.com/1024/768/sports/1" style="visibility: hidden;" data-viewport="div" id="img-1">
+        </div>
+
+        <h2>2. Right and bottom aligned</h2>
+        <pre>
+            {
+                fullWidth: true,
+                fullHeight: true,
+                valign: 'bottom',
+                halign: 'right'
+            }
+        </pre>
+        <script type="text/javascript">
+            'use strict';
+
+            jQuery(function ($) {
+                $('#img-2').fullSizeElement({
+                    valign: 'bottom',
+                    halign: 'right'
+                });
+            });
+        </script>
+        <div class="img-container">
+            <img src="http://lorempixel.com/1024/768/sports/2" style="visibility: hidden;" data-viewport="div" id="img-2">
+        </div>
+
+        <h2>3. Right and bottom aligned, fixed width</h2>
+        <pre>
+            {
+                fullWidth: false,
+                fullHeight: true,
+                valign: 'bottom',
+                halign: 'right'
+            }
+        </pre>
+        <script type="text/javascript">
+            'use strict';
+
+            jQuery(function ($) {
+                $('#img-3').fullSizeElement({
+                    fullWidth: false,
+                    valign: 'bottom',
+                    halign: 'right'
+                });
+            });
+        </script>
+        <div class="img-container">
+            <img src="http://lorempixel.com/1024/768/sports/3" style="visibility: hidden;" data-viewport="div" id="img-3">
+        </div>
+
+        <h2>4. Right and center aligned, fixed height</h2>
+        <pre>
+            {
+                fullWidth: true,
+                fullHeight: false,
+                valign: 'center',
+                halign: 'right'
+            }
+        </pre>
+        <script type="text/javascript">
+            'use strict';
+
+            jQuery(function ($) {
+                $('#img-4').fullSizeElement({
+                    fullHeight: false,
+                    valign: 'center',
+                    halign: 'right'
+                });
+            });
+        </script>
+        <div class="img-container">
+            <img src="http://lorempixel.com/1024/768/sports/4" style="visibility: hidden;" data-viewport="div" id="img-4">
+        </div>
+    </div>
+</body>
+</html>
