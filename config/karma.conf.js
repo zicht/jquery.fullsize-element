@@ -28,7 +28,7 @@ module.exports = function(config) {
                 included: true
             },
             {
-                pattern: 'bower_components/zicht-image-loader-js/dist/image-loader.min.js',
+                pattern: 'bower_components/zicht-jquery-image-preloader/dist/jquery.image-preloader.min.js',
                 watched: false,
                 served: true,
                 included: true

@@ -4,7 +4,7 @@
     'use strict';
 
     /**
-     * @typedef {object} Size
+     * @typedef {Object} Size
      * @property {number} width
      * @property {number} height
      */
