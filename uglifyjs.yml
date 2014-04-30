@@ -2,5 +2,5 @@ target_dir: dist
 web_root:   .
 src_dir:    src
 resources:
-    jquery.full-size-element.min.js:
-        files: ['jquery.full-size-element.js']
+    jquery.fullsize-element.min.js:
+        files: ['jquery.fullsize-element.js']
