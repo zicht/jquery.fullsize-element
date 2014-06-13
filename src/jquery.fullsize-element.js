@@ -30,8 +30,8 @@
      */
     elementSize = function ($element) {
         return {
-            width: $element.width(),
-            height: $element.height()
+            width: $element.outerWidth(true),
+            height: $element.outerHeight(true)
         };
     };
 
