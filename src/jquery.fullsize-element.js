@@ -53,7 +53,7 @@
     createVAligner = function (valign) {
         var aligner;
 
-        valign = $.inArray(valign, ['top', 'center', 'bottom']) ? valign : defaultOptions.valign;
+        valign = $.inArray(valign, ['top', 'center', 'bottom']) !== -1 ? valign : defaultOptions.valign;
 
         if (valign === 'bottom') {
             aligner = function (height, viewportSize) {
@@ -62,6 +62,10 @@
         } else if (valign === 'center') {
             aligner = function (height, viewportSize) {
                 return (viewportSize.height - height) / 2;
+            };
+        } else if (valign === 'top') {
+            aligner = function () {
+                return 0;
             };
         }
 
@@ -75,7 +79,7 @@
     createHAligner = function (halign) {
         var aligner;
 
-        halign = $.inArray(halign, ['left', 'center', 'right']) ? halign : defaultOptions.halign;
+        halign = $.inArray(halign, ['left', 'center', 'right']) !== -1 ? halign : defaultOptions.halign;
 
         if (halign === 'right') {
             aligner = function (width, viewportSize) {
@@ -84,6 +88,10 @@
         } else if (halign === 'center') {
             aligner = function (width, viewportSize) {
                 return (viewportSize.width - width) / 2;
+            };
+        } else if (halign === 'left') {
+            aligner = function () {
+                return 0;
             };
         }
 
