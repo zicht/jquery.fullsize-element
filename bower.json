@@ -1,17 +1,17 @@
 {
-  "name": "zicht-jquery-fullsize-element",
-  "version": "1.0.4",
-  "main": "src/jquery.fullsize-element.js",
-  "authors": [
-    "Joppe Aarts <joppe@zicht.nl>"
-  ],
-  "description": "jQuery plugin for creating full size elements",
-  "devDependencies": {
-    "jasmine-jquery": "1.5.2",
-    "bootstrap-css": "~3.0.0"
-  },
-  "dependencies": {
-    "zicht-jquery-image-preloader": "~1.0.1",
-    "jquery": "1.8"
-  }
+    "name": "zicht-jquery-fullsize-element",
+    "version": "1.1.1",
+    "main": "src/jquery.fullsize-element.js",
+    "authors": [
+        "Joppe Aarts <joppe@zicht.nl>"
+    ],
+    "description": "jQuery plugin for creating full size elements",
+    "devDependencies": {
+        "jasmine-jquery": "1.5.2",
+        "bootstrap-css": "~3.0.0"
+    },
+    "dependencies": {
+        "zicht-jquery-image-preloader": "~1",
+        "jquery": "~1"
+    }
 }
