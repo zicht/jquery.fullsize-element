@@ -1,6 +1,6 @@
 {
   "name": "zicht-jquery-fullsize-element",
-  "version": "0.0.0",
+  "version": "1.2.0",
   "description": "jQuery plugin for creating full size elements.",
   "main": "index.js",
   "directories": {

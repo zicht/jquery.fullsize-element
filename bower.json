@@ -1,6 +1,6 @@
 {
     "name": "zicht-jquery-fullsize-element",
-    "version": "1.1.1",
+    "version": "1.2.0",
     "main": "src/jquery.fullsize-element.js",
     "authors": [
         "Joppe Aarts <joppe@zicht.nl>"
