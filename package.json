@@ -1,0 +1,25 @@
+{
+  "name": "zicht-jquery-fullsize-element",
+  "version": "0.0.0",
+  "description": "jQuery plugin for creating full size elements.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.zicht.nl:zicht/jquery-fullsize-element.git"
+  },
+  "author": "Joppe Aarts",
+  "license": "MIT",
+  "devDependencies": {
+    "zicht-eslint": "git+ssh://git@git.zicht.nl:zicht/eslint.git",
+    "bower": "^1.7.2",
+    "karma": "^0.12.31",
+    "karma-jasmine": "^0.1.5",
+    "karma-phantomjs-launcher": "^0.1.4"
+  }
+}
