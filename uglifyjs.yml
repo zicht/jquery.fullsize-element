@@ -1,6 +1,0 @@
-target_dir: dist
-web_root:   .
-src_dir:    src
-resources:
-    jquery.fullsize-element.min.js:
-        files: ['jquery.fullsize-element.js']
