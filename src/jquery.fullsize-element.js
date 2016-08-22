@@ -1,10 +1,8 @@
-/*global jQuery, window*/
+/* global jQuery, window*/
 
 (function ($) {
-    'use strict';
-
     /**
-     * @typedef {Object} Size
+     * @typedef {object} Size
      * @property {number} width
      * @property {number} height
      */
@@ -25,8 +23,8 @@
         createHAligner;
 
     /**
-     * @param $element
-     * @returns Size
+     * @param {jQuery} $element
+     * @returns {Size}
      */
     elementSize = function ($element) {
         return {
@@ -47,23 +45,22 @@
     };
 
     /**
-     * @param {string} valign one of 'top', 'center', 'bottom'
+     * @param {string} config one of 'top', 'center', 'bottom'
      * @returns {Function}
      */
-    createVAligner = function (valign) {
-        var aligner;
+    createVAligner = function (config) {
+        var aligner,
+            valign = -1 !== $.inArray(config, ['top', 'center', 'bottom']) ? config : defaultOptions.valign;
 
-        valign = $.inArray(valign, ['top', 'center', 'bottom']) !== -1 ? valign : defaultOptions.valign;
-
-        if (valign === 'bottom') {
+        if ('bottom' === valign) {
             aligner = function (height, viewportSize) {
                 return -(height - viewportSize.height);
             };
-        } else if (valign === 'center') {
+        } else if ('center' === valign) {
             aligner = function (height, viewportSize) {
                 return (viewportSize.height - height) / 2;
             };
-        } else if (valign === 'top') {
+        } else if ('top' === valign) {
             aligner = function () {
                 return 0;
             };
@@ -73,23 +70,22 @@
     };
 
     /**
-     * @param {string} halign one of 'left', 'center', 'right'
+     * @param {string} config one of 'left', 'center', 'right'
      * @returns {Function}
      */
-    createHAligner = function (halign) {
-        var aligner;
+    createHAligner = function (config) {
+        var aligner,
+            halign = -1 !== $.inArray(config, ['left', 'center', 'right']) ? config : defaultOptions.halign;
 
-        halign = $.inArray(halign, ['left', 'center', 'right']) !== -1 ? halign : defaultOptions.halign;
-
-        if (halign === 'right') {
+        if ('right' === halign) {
             aligner = function (width, viewportSize) {
                 return -(width - viewportSize.width);
             };
-        } else if (halign === 'center') {
+        } else if ('center' === halign) {
             aligner = function (width, viewportSize) {
                 return (viewportSize.width - width) / 2;
             };
-        } else if (halign === 'left') {
+        } else if ('left' === halign) {
             aligner = function () {
                 return 0;
             };
@@ -109,12 +105,12 @@
     createResizer = function (constrainProportions, fullWidth, fullHeight, originalSize, originalRatio) {
         var resizer;
 
-        if (constrainProportions === true) {
-            if (fullWidth === true && fullHeight === true) {
+        if (true === fullWidth && true === fullHeight) {
+            if (true === constrainProportions) {
                 resizer = function (viewportSize, viewportRatio) {
                     var properties = {};
 
-                    if (this.originalRatio < viewportRatio) {
+                    if (viewportRatio > originalRatio) {
                         // width leading
                         properties.width = viewportSize.width;
                         properties.height = Math.round(viewportSize.width / originalRatio);
@@ -126,37 +122,39 @@
 
                     return properties;
                 };
-            } else if (fullWidth === true) {
+            } else {
+                resizer = function (viewportSize) {
+                    return {
+                        width: viewportSize.width,
+                        height: viewportSize.height
+                    };
+                };
+            }
+        } else if (true === fullWidth) {
+            if (true === constrainProportions) {
                 resizer = function (viewportSize) {
                     return {
                         width: viewportSize.width,
                         height: viewportSize.width / originalRatio
                     };
                 };
-            } else if (fullHeight === true) {
-                resizer = function (viewportSize) {
-                    return {
-                        width: viewportSize.height * this.originalRatio,
-                        height: viewportSize.height
-                    };
-                };
-            }
-        } else {
-            if (fullWidth === true && fullHeight === true) {
-                resizer = function (viewportSize) {
-                    return {
-                        width: viewportSize.width,
-                        height: viewportSize.height
-                    };
-                };
-            } else if (fullWidth === true) {
+            } else {
                 resizer = function (viewportSize) {
                     return {
                         width: viewportSize.width,
                         height: originalSize.height
                     };
                 };
-            } else if (fullHeight === true) {
+            }
+        } else if (true === fullHeight) {
+            if (true === constrainProportions) {
+                resizer = function (viewportSize) {
+                    return {
+                        width: viewportSize.height * originalRatio,
+                        height: viewportSize.height
+                    };
+                };
+            } else {
                 resizer = function (viewportSize) {
                     return {
                         width: originalSize.width,
@@ -212,7 +210,7 @@
             var listening = false;
 
             return function () {
-                if (listening === false) {
+                if (false === listening) {
                     listening = true;
 
                     $window.on('resize', function () {
@@ -231,6 +229,7 @@
          */
         function create($element, $viewport, options) {
             var fullSizeElement = new FullSizeElement($element, $viewport, options);
+
             fullSizeElement.resize();
             elements.push(fullSizeElement);
             addResizeListener();
@@ -238,7 +237,7 @@
 
         return function ($element, $viewport, options) {
             // if the element is an image it must be preloaded first
-            if ($element.get(0).tagName.toLowerCase() === 'img') {
+            if ('img' === $element.get(0).tagName.toLowerCase()) {
                 $element.imagePreloader({
                     finish: function () {
                         create($element, $viewport, options);
@@ -250,11 +249,11 @@
         };
     }());
 
-    $.fn.fullSizeElement = function (options) {
-        options = $.extend({}, defaultOptions, options || {});
+    $.fn.fullSizeElement = function (config) {
+        var options = $.extend({}, defaultOptions, config || {});
 
-        return this.each(function () {
-            var $element = $(this),
+        return this.each(function (index, el) {
+            var $element = $(el),
                 $viewport = options.$viewport,
                 viewport = $element.data('viewport');
 
@@ -262,7 +261,7 @@
                 $viewport = $element.parent().closest(viewport);
             }
 
-            FullSizeElement.factory($(this), ($viewport && $viewport.size()) ? $viewport : $window, options);
+            FullSizeElement.factory($element, ($viewport && $viewport.size()) ? $viewport : $window, options);
         });
     };
 }(jQuery));
