@@ -1,0 +1,28 @@
+/*-----------------------------------------------------------------------------*\
+ * #OBJECTS o-fullsize-element
+ *
+ * Images can be shown full size with the fullsize-element JS plugin.
+ * This CSS object creates a re-usable style that must be added to the images
+ * you want to apply the JS plugin to.
+\*-----------------------------------------------------------------------------*/
+
+
+
+/**
+ * The element that acts as a viewport for the element that will be shown full-size.
+ */
+.o-full-size-element {
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+/**
+ * If the element is an image, this class needs to be applied.
+ * This will help make sure the image is not shown before it's finished pre-loading.
+ */
+.o-full-size-element__image {
+    position: absolute;
+    visibility: hidden;
+}
