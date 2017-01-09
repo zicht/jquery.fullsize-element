@@ -13,5 +13,6 @@
     "dependencies": {
         "zicht-jquery-image-preloader": "~1",
         "jquery": "~1"
-    }
+    },
+    "license": "MIT"
 }
