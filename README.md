@@ -52,3 +52,6 @@ jQuery(function ($) {
     <img class="o-full-size-element__image  js-fullsize-element" src="http://lorempixel.com/1024/768/sports/1" data-viewport=".o-full-size-element">
 </div>
 ```
+
+# Maintainer(s)
+* Joppe Aarts <joppe@zicht.nl>
