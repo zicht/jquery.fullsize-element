@@ -53,5 +53,5 @@ jQuery(function ($) {
 </div>
 ```
 
-# Maintainer(s)
-* Joppe Aarts <joppe@zicht.nl>
+# Maintainer
+* Boudewijn Schoon <boudewijn@zicht.nl>
